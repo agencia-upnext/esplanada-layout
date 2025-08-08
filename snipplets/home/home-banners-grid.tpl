@@ -105,7 +105,7 @@
             {% if not module or (module and (section_slider or theme_editor)) %}
                 <div class="js-banner {% if section_slider %}swiper-slide {% endif %}col-grid {% if section_columns_desktop_4 %}col-md-3{% elseif section_columns_desktop_3 %}col-md-4{% elseif section_columns_desktop_2 %}col-md-6{% elseif section_columns_desktop_1 %}col-md-12{% endif %}">
             {% endif %}
-                <div class="js-textbanner textbanner {{ banner_classes }}">
+                <div class="js-textbanner textbanner banner-promocional {{ banner_classes }}">
                     {% if slide.link %}
                         <a href="{{ slide.link | setting_url }}" class="textbanner-link" aria-label="{{ 'Carrusel' | translate }} {{ loop.index }}">
                     {% endif %}
@@ -121,13 +121,13 @@
                     {% if has_banner_text %}
                         <div class="js-textbanner-text textbanner-text{% if module %} col-md-6 px-3 px-md-5 text-center {% if not section_slider and loop.index is even %}order-md-first{% endif %}{% endif %}{% if section_align_center %} text-center{% endif %} {% if not section_text_outside %} over-image{% endif %} {% if not section_text_outside and slide.color == 'light' %}over-image-invert{% endif %}">
                             {% if slide.title %}
-                                <h3 class="{% if section_columns_desktop_4 %}h2-md{% else %}h1-md{% endif %} mb-2 {% if section_columns_desktop_1 %} w-md-50 mx-auto{% endif %} {% if module %}px-md-3{% endif %}">{{ slide.title }}</h3>
+                                <h3 class="banner-promocional__title {% if section_columns_desktop_4 %}h2-md{% else %}h1-md{% endif %} {% if section_columns_desktop_1 %} w-md-50 mx-auto{% endif %} {% if module %}px-md-3{% endif %}">{{ slide.title }}</h3>
                             {% endif %}
                             {% if slide.description %}
-                                <div class="textbanner-paragraph font-small font-md-body{% if slide.button and slide.link %} mb-2{% endif %} {% if section_columns_desktop_1 %} w-md-50 mx-auto{% endif %} {% if module %}pt-1 pb-md-0 px-md-3{% endif %}">{{ slide.description }}</div>
+                                <div class="banner-promocional__description {% if slide.button and slide.link %} {% endif %} {% if section_columns_desktop_1 %} w-md-50 mx-auto{% endif %} {% if module %}pt-1 pb-md-0 px-md-3{% endif %}">{{ slide.description }}</div>
                             {% endif %}
                             {% if slide.button and slide.link %}
-                                <div class="btn btn-primary btn-small mt-1 mt-md-2">{{ slide.button }}</div>
+                                <div class="banner-promocional__button btn mt-2 mt-md-2">{{ slide.button }}</div>
                             {% endif %}
                         </div>
                     {% endif %}

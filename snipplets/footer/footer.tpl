@@ -17,7 +17,7 @@
 			{% include 'snipplets/newsletter.tpl' with {form_data_store: 'newsletter-form'} %}
 		{% endif %}
 	{% endif %}
-		<div class="container-desktop p-4 mb-4">
+		<div class="container p-4 mb-4">
 			<div class="row">
 				{% if template != 'password' %}
 					{# Foot Nav #}
@@ -164,7 +164,7 @@
 
 		{% if template != 'password' and (has_shipping_payment_logos or has_languages or has_seal_logos) %}
 			<div class="divider d-none d-md-block m-0"></div>
-			<div class="container-desktop p-4">
+			<div class="container p-4">
 				{% if has_shipping_payment_logos or has_languages %}
 					<div class="row align-items-center py-4 mt-4 mb-4">
 						{# Logos Payments and Shipping #}
@@ -231,7 +231,7 @@
 		{% endif %}
 
 	<div class="js-footer-legal footer-legal">
-		<div class="container-desktop p-4">
+		<div class="container p-4">
 			<div class="row align-items-center text-center text-md-left">
 				<div class="col-md">
 					<div class="d-inline-block mr-md-2">

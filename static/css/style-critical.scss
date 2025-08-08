@@ -1,3 +1,27 @@
+$breakpoints: (
+  mobile: 768px,
+  tablet: 1024px,
+  desktop: 1025px
+);
+
+@mixin breakpoint($name) {
+  $value: map-get($breakpoints, $name);
+
+  @if $value {
+    @if $name == desktop {
+      @media (min-width: $value) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $value) {
+        @content;
+      }
+    }
+  } @else {
+    @warn "Breakpoint '#{$name}' não está definido no mapa.";
+  }
+}
+
 /*============================================================================
 critical-css.tpl
 
@@ -1248,13 +1272,18 @@ p{
 .swiper-text {
   position: absolute;
   bottom: 0;
-  left: -60px;
   z-index: 9;
   width: 100%;
   padding: 25px 20px;
   opacity: 0;
   color: var(--main-foreground);
   transition: all 0.5s ease;
+}
+
+.main-banner {
+  .swiper-text {
+    width: fit-content;
+  }
 }
 
 .swiper-text-centered {
@@ -1264,6 +1293,7 @@ p{
   text-align: center;
   transform: translate(-50%, -50%);
 }
+
 .swiper-slide-active .swiper-text {
   left: 0;
   opacity: 1;
@@ -1273,6 +1303,32 @@ p{
   left: 50%;
   opacity: 1;
 }
+
+@include breakpoint(desktop) {
+  .swiper-slide-active .swiper-text-right {
+    bottom: 10%;
+    left: 70%;
+    opacity: 1;
+  }
+}
+
+@include breakpoint(tablet) {
+  .swiper-slide-active .swiper-text-right {
+    bottom: 0%;
+    left: 70%;
+    opacity: 1;
+  }
+}
+
+@include breakpoint(mobile) {
+  .swiper-slide-active .swiper-text-right {
+    bottom: 0;
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -0%);
+  }
+}
+
 .swiper-text-light {
   color: var(--main-background);
   border-color: var(--main-background);
@@ -2739,6 +2795,14 @@ input[type=number] {
 
 /* // Sections */
 
+.section-categories-home.section-home-color {
+  padding: 30px 0px 35px;
+
+  @include breakpoint(tablet) {
+    padding: 1rem;
+  }
+}
+
 .home-sections-container > .section-home:first-child {
   padding-top: 0;
 }
@@ -3064,6 +3128,122 @@ input[type=number] {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.banner-promocional {
+  border-radius: 10px;
+
+  &__title {
+    font-weight: 800;
+    margin-bottom: -3px;
+
+    @include breakpoint(tablet) {
+      font-size: 20px !important;
+    }
+  }
+
+  &__description {
+    margin-bottom: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+
+    @include breakpoint(tablet) {
+      font-size: 14px;
+    }
+  }
+
+  &__button {
+    background-color: #EB6642;
+    display: inline-block;
+    padding: 10px 1.875rem;
+    border-radius: 10px;
+    font-size: 1.25rem;
+
+    @include breakpoint(tablet) {
+      font-size: 14px;
+      padding: 6px 22px;
+    }
+  }
+}
+
+.banner-destaque {
+  border-radius: 10px;
+  
+  &__button {
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 12px 34px;
+    font-size: 19px;
+    background-color: #00000060;
+    margin-top: 1rem;
+  }
+
+  .textbanner-text {
+    text-align: center;
+    padding-bottom: 1.25rem;
+  }
+}
+
+.main-banner {
+  
+  &__button {
+    background-color: #EB6642;
+    width: 260px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 24px;
+
+    @include breakpoint(tablet) {
+      font-size: 16px;
+      height: auto;
+      width: fit-content;
+      padding: 0.75rem 2.25rem;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}
+
+.home-category-image {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 100%; 
+}
+
+.home-category-image .category-image-main,
+.home-category-image .category-image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.home-category-image .category-image-hover {
+    opacity: 0;
+}
+
+a.js-home-category:hover .home-category-image .category-image-hover {
+    opacity: 1;
+}
+
+a.js-home-category:hover .home-category-image .category-image-main {
+    opacity: 0;
+}
+
+.js-banners-section-title {
+  font-weight: 500;
 }
 
 /* // Informative banners */
@@ -4072,9 +4252,7 @@ a.item-subcategory:hover {
   .section-featured-home.section-home-color {
     padding: var(--section-distance-small) 0;
   }
-  .section-categories-home.section-home-color {
-    padding: 30px 0px 35px;
-  }
+
   .home-video-text-bottom {
     padding: 40px 30px;
   }

@@ -574,6 +574,7 @@ Home
 	best_seller_products_desktop = 4
 	slider_full = 1
 	slider_align = center
+	slider_align = right
 	banner_align = center
 	banner_columns_desktop = 1
 	banner_without_margins = 1

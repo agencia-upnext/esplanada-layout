@@ -24,7 +24,7 @@
 								{% if slide.link %}
 									<a href="{{ slide.link | setting_url }}" aria-label="{{ 'Carrusel' | translate }} {{ loop.index }}">
 								{% endif %}
-								<div class="slider-slide">
+								<div class="slider-slide main-banner">
 
 									{% set apply_lazy_load = not (loop.first and ((has_main_slider and not has_mobile_slider) or (has_mobile_slider and mobile))) %}
 
@@ -42,15 +42,15 @@
 									/>
 									<div class="placeholder-fade"></div>
 									{% if has_text %}
-										<div class="js-swiper-text swiper-text{% if slider_align == 'center' %} swiper-text-centered{% endif %} swiper-text-{{ slide.color }}">
+										<div class="js-swiper-text swiper-text {% if slider_align == 'center' %} swiper-text-centered{% elseif slider_align == 'right' %}swiper-text-right{% endif %} swiper-text-{{ slide.color }}">
 											{% if slide.description %}
 												<p class="mb-3">{{ slide.description }}</p>
 											{% endif %}
 											{% if slide.title %}
-												<div class="h1-huge mb-3">{{ slide.title }}</div>
+												<div class="text-center main-banner__title h1-huge mb-3">{{ slide.title }}</div>
 											{% endif %}
 											{% if slide.button and slide.link %}
-												<div class="btn btn-default btn-small d-inline-block">{{ slide.button }}</div>
+												<div class="main-banner__button btn d-flex">{{ slide.button }}</div>
 											{% endif %}
 										</div>
 									{% endif %}

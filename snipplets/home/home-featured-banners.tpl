@@ -38,7 +38,7 @@
                                     <div class="row row-grid">
                             {% endif %}
                             <div class="col-grid col-md{% if (num_banners == 2 or num_banners == 3 or num_banners == 4) and loop.first %}-6{% elseif num_banners == 2 and loop.index == 2 %}-6{% else %}-6{% endif %}  {% if loop.index == 3 %}col-md-12 col-12{% endif %}">
-                                <div class="textbanner">
+                                <div class="textbanner banner-destaque">
                                     {% if banner_url %}
                                         <a class="textbanner-link" href="{{ banner_url | setting_url }}"{% if banner_title %} title="{{ banner_title }}" aria-label="{{ banner_title }}"{% else %} title="{{ 'Banner de' | translate }} {{ store.name }}" aria-label="{{ 'Banner de' | translate }} {{ store.name }}"{% endif %}>
                                     {% endif %}
@@ -67,7 +67,7 @@
                                                 <div class="textbanner-paragraph font-small font-md-body{% if banner_url and banner_button_text %} mb-md-2 mb-1{% endif %}">{{ banner_description }}</div>
                                             {% endif %}
                                             {% if banner_url and banner_button_text %}
-                                                <div class="btn btn-default btn-smallest {% if banner_big %}mt-2{% else %}mt-1{% endif %}">{{ banner_button_text }}</div>
+                                                <div class="banner-destaque__button btn {% if banner_big %}mt-2{% else %}mt-1{% endif %}">{{ banner_button_text }}</div>
                                             {% endif %}
                                         </div>
                                     {% endif %}

@@ -569,6 +569,7 @@ Página de inicio
 		values
 			left = Izquierda
 			center = Centrado
+			right = Direita
 	subtitle
 		subtitle = Imágenes para computadoras
 	gallery
@@ -605,6 +606,12 @@ Página de inicio
 		description = Título
 	gallery
 		name = slider_categories
+		gallery_image = Agregar imagen
+		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
+		gallery_width = 150
+		gallery_height = 180
+	gallery
+		name = slider_categories_hovered
 		gallery_image = Agregar imagen
 		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
 		gallery_width = 150
