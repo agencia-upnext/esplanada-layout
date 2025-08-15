@@ -105,7 +105,7 @@
             {% if not module or (module and (section_slider or theme_editor)) %}
                 <div class="js-banner {% if section_slider %}swiper-slide {% endif %}col-grid {% if section_columns_desktop_4 %}col-md-3{% elseif section_columns_desktop_3 %}col-md-4{% elseif section_columns_desktop_2 %}col-md-6{% elseif section_columns_desktop_1 %}col-md-12{% endif %}">
             {% endif %}
-                <div class="js-textbanner textbanner banner-promocional {{ banner_classes }}">
+                <div class="js-textbanner textbanner {% if banner_promotional %} banner-promocional {% endif %} {{ banner_classes }}">
                     {% if slide.link %}
                         <a href="{{ slide.link | setting_url }}" class="textbanner-link" aria-label="{{ 'Carrusel' | translate }} {{ loop.index }}">
                     {% endif %}

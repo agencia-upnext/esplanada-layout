@@ -26,7 +26,7 @@
             <span class="d-inline-block mr-1">
             	<div class="js-price-display h3 font-huge" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %} data-product-price="{{ product.price }}">{% if product.display_price %}{{ product.price | money }}{% endif %}</div>
             </span>
-            {% include 'snipplets/labels.tpl' with {product_detail: true} %}
+            {% include 'snipplets/labels.tpl' with {product_detail: true}  %}
             <span class="d-block font-big title-font-family mt-1">
                <div id="compare_price_display" class="js-compare-price-display price-compare {% if settings.payment_discount_price %}font-body{% endif %}" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %} style="display:block;"{% endif %}>{% if product.compare_at_price and product.display_price %}{{ product.compare_at_price | money }}{% endif %}</div>
             </span>

@@ -5,7 +5,7 @@
 		</a>
 	</span>
 {% elseif use_account %}
-	<span class="utilities-container {% if header_desktop %}d-none d-md-inline-block mr-4{% endif %}">
+	<span class="utilities-container{% if header_desktop %}d-md-inline-block mr-4{% endif %}">
 		{% if icon_only %}
 			<a href="{% if not customer %}{{ store.customer_login_url }}{% else %}{{ store.customer_home_url }}{% endif %}" class="btn btn-utility">
 				<svg class="icon-inline utilities-icon" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">

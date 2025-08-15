@@ -1100,6 +1100,10 @@ h6,
 .breadcrumbs {
   margin-bottom: 10px;
   font-size: 13px;
+
+  @include breakpoint(tablet) {
+    font-size: 10px;
+  }
 }
 .breadcrumbs .separator {
   margin: 3px;
@@ -2492,7 +2496,6 @@ input[type=number] {
 .nav-item {
   display: inline-flex;
   position: initial;
-  padding: 0 15px;
   font-size: var(--font-base);
   white-space: normal;
 }
@@ -2534,7 +2537,7 @@ input[type=number] {
 }
 
 .head-banner-item-image {
-  width: 20px;
+  // width: 20px;
 }
 
 /* // Logo */
@@ -2672,7 +2675,7 @@ input[type=number] {
   width: 100%;
   min-height: 30px;
   font-size: var(--font-small);
-  background-color: var(--topbar-background);
+  background: linear-gradient(to right, #E85D46, #EA8B44);
   color: var(--topbar-foreground);
   fill: var(--topbar-foreground);
 }
@@ -3297,11 +3300,18 @@ a.js-home-category:hover .home-category-image .category-image-main {
   z-index: 100;
   transition: all 0.1s ease;
   background-color: var(--main-background);
-  border-top: var(--border-solid) var(--main-foreground-opacity-10);
-  border-bottom: var(--border-solid) var(--main-foreground-opacity-10);
+  // border-top: var(--border-solid) var(--main-foreground-opacity-10);
+  // border-bottom: var(--border-solid) var(--main-foreground-opacity-10);
 }
-.category-controls .category-control-item:first-child {
-  border-right: var(--border-solid) var(--main-foreground-opacity-10);
+// .category-controls .category-control-item:first-child {
+//   border-right: var(--border-solid) var(--main-foreground-opacity-10);
+// }
+
+.filter-text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1E2936;
 }
 
 .category-controls.category-controls-transparent {
@@ -3310,6 +3320,8 @@ a.js-home-category:hover .home-category-image .category-image-main {
 
 .category-control-item a {
   padding: 12px 15px;
+  border: 2px solid #C6CACA;
+  border-radius: 4px;
 }
 
 .filters-sidebar {
@@ -3440,6 +3452,10 @@ a.js-home-category:hover .home-category-image .category-image-main {
 .section-banners-home.promotional-banners {
   background: #fff;
   padding: 3rem 0px;
+
+  @include breakpoint(mobile) {
+    padding: 2.5rem 0.5rem 1rem 0.5rem;
+  }
 }
 
 div.labels {
@@ -3454,6 +3470,20 @@ div.labels {
   border-radius: 10px;
   justify-content: center;
   padding: 15px;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  &-text {
+    @media (max-width: 1200px) {
+      font-size: 11px;
+    }
+  }
+
+  &-title {
+    @media (max-width: 1200px) {
+      font-size: 14px;
+    }
+  }
 }
 
 .card-informative-icon {
@@ -3462,6 +3492,18 @@ div.labels {
   background: #E85D46;
   text-align: center;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1200px) {
+    width: 24px;
+    height: 24px;
+
+    svg {
+      width: 14px;
+    }
+  }
 }
 
 .card-informative .card-informative-icon svg.svg-icon-text {
@@ -3474,7 +3516,6 @@ div.labels {
 
 .card-informative-title {
   font-weight: 900;
-  font-size: 20px;
   color: #000;
 }
 
@@ -4083,7 +4124,7 @@ a.item-subcategory:hover {
   }
 
   .head-main .head-logo-row {
-    border-bottom: var(--border-solid) var(--header-foreground-opacity-10);
+    // border-bottom: var(--border-solid) var(--header-foreground-opacity-10);
   }
   .head-nav-desktop-colors .head-logo-row,
   .head-transparent.header-with-adbar:not(:hover),
@@ -4462,4 +4503,48 @@ a.item-subcategory:hover {
   /* // Icons */
 
   .icon-desktop-lg {font-size: 1.33333em;line-height: .75em;vertical-align: -.0667em;}
+}
+
+
+.btn-see-all {
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid;
+  z-index: 10;
+  white-space: nowrap;
+  
+  svg { 
+    fill: currentColor;
+  }
+
+  &__white {
+    color: white;
+    border-color: white;
+
+    &:hover {
+      opacity: 0.8;
+      color: white;
+    }
+  }
+
+  &__gray {
+    color: #666666;
+    border-color: #666666;
+
+    &:hover {
+      opacity: 0.8;
+      color: #666666;
+    }
+  }
+
+  @include breakpoint(tablet) {
+    position: static;
+    margin: 10px;
+  }
 }

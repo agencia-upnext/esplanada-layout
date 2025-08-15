@@ -3181,6 +3181,10 @@ es "Información de compra"
 pt "Informações sobre a compra"
 es_mx "Información de compra"
 
+es "Información de compra mobile"
+pt "Informações sobre a compra no mobile"
+es_mx "Información de compra"
+
 es "Agregá información importante para la compra. Ejemplo: Entregas, locales o devoluciones."
 pt "Adicione informações importantes para a compra. Exemplo: Frete, lojas físicas ou devoluções."
 es_mx "Agrega información importante para la compra. Ejemplo: Entregas, locales o devoluciones."

@@ -1,10 +1,10 @@
-<div class="swiper-slide">
+<div class="swiper-slide" style="width: 50%">
     {% if banner_services_url %}
         <a href="{{ banner_services_url | setting_url }}">
     {% endif %}
         <div class="row no-gutters card-informative">
             <div class="col-auto card-informative-icon">
-                {% set banner_services_icon_classes = 'icon-inline h2 align-item-middle svg-icon-text' %}
+                {% set banner_services_icon_classes = 'icon-inline h2 svg-icon-text' %}
                 {% if banner_services_icon == 'image' and banner_services_image %}
                     <img class="service-item-image align-item-middle lazyload" src="{{ 'images/empty-placeholder.png' | static_url }}" data-src='{{ "#{banner}.jpg" | static_url | settings_image_url("large") }}' {% if banner_services_title %}alt="{{ banner_services_title }}"{% else %}alt="{{ 'Banner de' | translate }} {{ store.name }}"{% endif %} />
                 {% elseif banner_services_icon == 'shipping' %}
@@ -36,8 +36,8 @@
                 {% endif %}
             </div>
             {% if banner_services_title or banner_services_description %}
-                <div class="col-auto pl-3">
-                    <div class="align-item-middle">
+                <div class="col-auto pl-3" style="max-width: 100%;">
+                    <div class="">
                         {% if banner_services_icon == 'image' or banner_services_icon == 'shipping' %}
                             {% if banner_services_title %}
                                 <h3 class="h6 card-informative-title m-0">{{ banner_services_title }}</h3>

@@ -62,7 +62,7 @@
 
                             <div id="quickshop-form" class="mr-md-1"></div>
 
-                            <a href="{{product.canonical_url}}" class="product_link_quickshop py-2 px-4 mt-4">
+                            <a href="{{product.canonical_url}}" class="product_link_quickshop py-2 px-4 mt-4" target="_blank">
                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
                                     <path d="M6.5 13C2.90588 13 0 10.0941 0 6.5C0 2.90588 2.90588 0 6.5 0C10.0941 0 13 2.90588 13 6.5C13 10.0941 10.0941 13 6.5 13Z" fill="#EA8B44"/>
                                     <path d="M3.05908 6.11791H9.94143V6.88261H3.05908V6.11791Z" fill="white"/>
@@ -77,3 +77,25 @@
         {% endblock %}
     {% endembed %}
 {% endif %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+        const quickshopButton = e.target.closest('.js-quickshop-modal-open');
+
+        if (quickshopButton) {
+            e.preventDefault();
+
+            const productUrl = quickshopButton.dataset.productUrl;
+
+            if (productUrl) {
+                const productLink = document.querySelector('.product_link_quickshop');
+
+                if (productLink) {
+                    productLink.setAttribute('href', productUrl);
+                }
+            }
+        }
+    });
+});
+</script>

@@ -21,7 +21,7 @@
       group: (labels_floating ? 'js-labels-floating-group labels-absolute' : 'd-inline-block align-text-top'),
       promotion: label_accent_classes  ~ (product_detail ? 'label-big'),
       promotion_secondary_text: 'text-lowercase',
-      offer: 'js-offer-label ' ~ label_accent_classes ~ (product_detail ? 'label-big'),
+      offer: 'js-offer-label ' ~ label_accent_classes ~ (product_detail ? 'label-big label-offer'),
       shipping: 'label label-accent ' ~ (product_detail ? 'label-big'),
       no_stock: 'js-stock-label label label-default ' ~ (product_detail ? 'label-big'),
     },

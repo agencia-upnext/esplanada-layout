@@ -14,7 +14,7 @@
                 {% endif %}
                 <div class="row align-items-center {% if has_1_banner %}justify-content-center{% endif %}">
                     {% if head_informative_banner_icon != 'none' %}
-                        <div class="col-auto pr-0 font-big">
+                        <div class="pr-0">
                             {% if head_informative_banner_icon == 'image' and head_informative_banner_image %}
                                 <img class="head-banner-item-image lazyload" src="{{ 'images/empty-placeholder.png' | static_url }}" data-src='{{ "#{banner}.jpg" | static_url | settings_image_url("thumb") }}' {% if head_informative_banner_title %}alt="{{ head_informative_banner_title }}"{% else %}alt="{{ 'Banner de' | translate }} {{ store.name }}"{% endif %} />
                             {% elseif head_informative_banner_icon == 'shipping' %}

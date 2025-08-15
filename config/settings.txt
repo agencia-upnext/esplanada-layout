@@ -347,6 +347,38 @@ Encabezado
 	i18n_input
 		name = menu_banner_mobile_url
 		description = Link
+	subtitle
+		subtitle = Información de compra mobile
+	description
+		description = Agregá información importante para la compra. Ejemplo: Entregas, locales o devoluciones.
+	subtitle
+		subtitle = <span class='js-description-html font-bold'>Información 1</span>
+	checkbox
+		name = head_informative_banner_01_show
+		description = Mostrar información
+	image
+		original = head_informative_banner_01.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+		width = 60
+		height = 60
+	dropdown
+		name = head_informative_banner_01_icon
+		description = Ícono
+		values
+			image = Imagen propia
+			none = Sin ícono
+			shipping = Envíos
+			store = Locales
+			payment = Medios de pago
+			promotions = Promociones
+			returns = Cambios y devoluciones
+			help = Ayuda
+	i18n_input
+		name = head_informative_banner_01_title
+		description = Título
+	i18n_input
+		name = head_informative_banner_01_url
+		description = Link
 	collapse
 		title = Encabezado en computadoras
 	checkbox
@@ -867,6 +899,14 @@ Página de inicio
 			6 = 6 productos
 	subtitle
 		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar</a>
+	subtitle
+		subtitle = <hr><strong>Botão "Ver tudo"</strong>
+	checkbox
+		name = featured_products_show_button
+		description = Marque para mostrar o botão "Ver tudo"
+	i18n_input
+		name = featured_products_button_link
+		description = Link do botão
 	collapse
 		title = Productos nuevos
 		backto = home_order_position
@@ -915,6 +955,14 @@ Página de inicio
 			6 = 6 productos
 	subtitle
 		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar</a>
+	subtitle
+		subtitle = <hr><strong>Botão "Ver tudo"</strong>
+	checkbox
+		name = new_products_show_button
+		description = Marque para mostrar o botão "Ver tudo"
+	i18n_input
+		name = new_products_button_link
+		description = Link do botão
 	collapse
 		title = Productos en oferta
 		backto = home_order_position
@@ -1009,6 +1057,14 @@ Página de inicio
 			4 = 4 productos
 			5 = 5 productos
 			6 = 6 productos
+	subtitle
+		subtitle = <hr><strong>Botão "Ver tudo"</strong>
+	checkbox
+		name = promotion_products_show_button
+		description = Marque para mostrar o botão "Ver tudo"
+	i18n_input
+		name = promotion_products_button_link
+		description = Link do botão
 	collapse
 		title = Productos más vendidos
 		backto = home_order_position

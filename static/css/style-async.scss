@@ -674,6 +674,24 @@ button[readonly]:hover {
 
 /* // Nav */
 
+.nav-main-item > .nav-list-link, .nav-main-item > .nav-item-container > .nav-list-link {
+  padding: 8px 23px;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    color: white;
+    background-color: #EA8B44;
+  }
+}
+
+.nav-list-link {
+
+  &:hover {
+    color: #EB6642;
+  }
+}
+
 .nav-desktop-list > .nav-item-desktop > .nav-item-container > .nav-list-link:after {
   background: var(--header-foreground);
 }
@@ -831,6 +849,10 @@ button[readonly]:hover {
   margin-bottom: 10px;
   font-size: var(--font-base);
   text-transform: initial;
+
+  &:hover {
+    color: #EB6642;
+  }
 }
 .desktop-list-subitems .nav-item .list-subitems {
   padding: 0;

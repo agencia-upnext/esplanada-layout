@@ -54,7 +54,7 @@
     <div class="js-item-product{% if slide_item %} js-item-slide swiper-slide{% endif %} col-{{ mobile_column_class }} col-md-{{ desktop_column_class }} item-product col-grid {% if reduced_item %}item-product-reduced{% endif %}" data-product-type="list" data-product-id="{{ product.id }}" data-store="product-item-{{ product.id }}" data-component="product-list-item" data-component-value="{{ product.id }}">
         <div class="item {% if reduced_item %}mb-0{% endif %}">
             {% if (settings.quick_shop or settings.product_color_variants) and not reduced_item %}
-                <div class="js-product-container js-quickshop-container{% if product.variations %} js-quickshop-has-variants{% endif %} position-relative" data-variants="{{ product.variants_object | json_encode }}" data-quickshop-id="quick{{ product.id }}">
+                <div class="js-product-container js-quickshop-container{% if product.variations %} js-quickshop-has-variants{% endif %} position-relative" data-variants="{{ product.variants_object | json_encode }}" data-quickshop-id="quick{{ product.id }}" data-product-url="{{ product.url }}">
             {% endif %}
             {% set product_url_with_selected_variant = has_filters ?  ( product.url | add_param('variant', product.selected_or_first_available_variant.id)) : product.url  %}
 
@@ -84,7 +84,7 @@
 
             {% set floating_elements %}
                 {% if not reduced_item and product.promotional_offer %}
-                    {% include 'snipplets/labels.tpl' with {labels_floating: true} %}
+                    {% include 'snipplets/labels.tpl' %}
                 {% endif %}
             {% endset %}
             
@@ -128,7 +128,9 @@
                 {% if product.available and product.display_price and settings.quick_shop %}
                     {% if settings.quick_shop and not reduced_item %}
                         <div class="item-actions d-inline-block">
-                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" data-toggle="#quickshop-modal" href="#" class="js-quickshop-modal-open {% if slide_item %}js-quickshop-slide{% endif %} js-modal-open" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}" data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" data-toggle="#quickshop-modal" href="#" class="js-quickshop-modal-open {% if slide_item %}js-quickshop-slide{% endif %} js-modal-open" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}" data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}"
+                            data-product-url="{{ product.url }}"
+                            >
                                 <circle cx="14" cy="14" r="14" fill="#EAEDED"/>
                                 <mask id="path-2-inside-1_2550_994" fill="white">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.9495 7.7002C12.0007 7.70028 11.0657 7.9258 10.2225 8.35795C9.37925 8.79011 8.65226 9.41636 8.10216 10.1845C7.55206 10.9526 7.1948 11.8402 7.06019 12.7734C6.92558 13.7066 7.01752 14.6583 7.32834 15.549C7.63916 16.4397 8.15985 17.2436 8.84696 17.8937C9.53407 18.5438 10.3677 19.0212 11.2783 19.2861C12.1888 19.5509 13.1499 19.5956 14.0814 19.4164C15.0129 19.2371 15.8877 18.8391 16.6329 18.2556L19.1893 20.7956C19.3213 20.9223 19.4981 20.9924 19.6817 20.9909C19.8652 20.9893 20.0408 20.9161 20.1706 20.7872C20.3004 20.6582 20.374 20.4838 20.3756 20.3014C20.3772 20.119 20.3066 19.9433 20.1791 19.8122L17.6227 17.2721C18.3143 16.4003 18.7449 15.3527 18.8653 14.2491C18.9856 13.1455 18.7909 12.0306 18.3033 11.0319C17.8156 10.0331 17.0549 9.19097 16.1081 8.60176C15.1613 8.01256 14.0667 7.70012 12.9495 7.7002ZM8.39949 13.6122C8.39949 12.4132 8.87887 11.2633 9.73216 10.4154C10.5854 9.56757 11.7428 9.09126 12.9495 9.09126C14.1562 9.09126 15.3135 9.56757 16.1668 10.4154C17.0201 11.2633 17.4995 12.4132 17.4995 13.6122C17.4995 14.8112 17.0201 15.9612 16.1668 16.809C15.3135 17.6568 14.1562 18.1332 12.9495 18.1332C11.7428 18.1332 10.5854 17.6568 9.73216 16.809C8.87887 15.9612 8.39949 14.8112 8.39949 13.6122Z"/>
@@ -229,3 +231,4 @@
             {{ component('structured-data', {'item': true}) }}
         </div>
     </div>
+

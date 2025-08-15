@@ -158,9 +158,19 @@
 
                 {# Account icon #}
 
-                <div class="js-utility-col col-utility desktop-utility-col user-util text-right {{ show_inline_desktop_hide_mobile_class }} {{ account_icon_col_classes }}">
-                    {% include "snipplets/header/header-utilities.tpl" with {use_account: true, icon_only: false} %}
+                <div class="js-utility-col col-utility d-md-none desktop-utility-col user-util text-right">
+                    {% include "snipplets/header/header-utilities.tpl" with {
+                        use_account: true,
+                        icon_only: true
+                    } %}
                 </div>
+
+                <div class="js-utility-col col-utility d-none d-md-block desktop-utility-col user-util text-right {{ account_icon_col_classes }}">
+                    {% include "snipplets/header/header-utilities.tpl" with {
+                        use_account: true,
+                        icon_only: false
+                    } %}
+                </div>  
 
                 {# Cart icon #}
 

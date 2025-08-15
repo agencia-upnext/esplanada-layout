@@ -100,10 +100,44 @@
 {% endif %}
 {% set section_columns_slider_mobile = section_columns_mobile == '1' ? '1.15' : '2.25' %}
 
+{% set icon_chevron = '<svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.071 7.071L1.414 12.728L0 11.314L4.95 6.364L0 1.414L1.414 0L7.071 5.657C7.25847 5.84453 7.36379 6.09884 7.36379 6.364C7.36379 6.62916 7.25847 6.88347 7.071 7.071Z" />
+</svg>' %}
+
+{% set button_settings = {
+    'promotion': {
+        'show': settings.promotion_products_show_button,
+        'link': settings.promotion_products_button_link,
+        'text': 'Ver Tudo',
+        'class': 'btn-see-all__white',
+    },
+    'primary': {
+        'show': settings.featured_products_show_button,
+        'link': settings.featured_products_button_link,
+        'text': 'Ver Tudo',
+        'class': 'btn-see-all__gray',
+    },
+    'new': {
+        'show': settings.new_products_show_button,
+        'link': settings.new_products_button_link,
+        'text': 'Ver Tudo',
+        'class': 'btn-see-all__gray',
+    }
+} %}
+
+{% set current_section = button_settings[section_name] %}
+
 <div class="js-products-{{ section_id }}-container container">
     <div class="row">
         <div class="js-products-{{ section_id }}-col col-12{% if use_slider %} pr-0 pr-md-3{% endif %}">
-            <h2 class="js-products-{{ section_id }}-title mt-2 {% if not promotion_products %}mb-3{% endif %} section-title h3 mb-0 text-center" {% if not section_title %}style="display: none;"{% endif %}>{{ section_title }}</h2>
+            <div class="d-flex justify-content-around align-items-center px-3" style="gap: 0.5rem;">
+                <h3 class="js-products-{{ section_id }}-title mt-2 {% if not promotion_products %}mb-3{% endif %} section-title h4 mb-0 text-center" {% if not section_title %}style="display: none;"{% endif %}>{{ section_title }}</h3>
+                {% if current_section.show %}
+                    <a href="{{ current_section.link }}" class="btn-see-all {{ current_section.class }}">
+                        {{ current_section.text }} {{ icon_chevron | raw }}
+                    </a>
+                {% endif %}
+            </div>
             {% if promotion_products %}
                 <svg class="text-center mb-4 mx-auto d-block" width="335" height="31" viewBox="0 0 335 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.8334 5.59722L10.5576 9.66748L13.9715 9.64876L12.6258 5.59295C12.6258 5.59295 12.5485 5.34037 12.2367 5.33369C12.2328 5.33369 12.2289 5.33369 12.2252 5.33369C11.9223 5.33369 11.8334 5.59722 11.8334 5.59722Z" fill="white"/>

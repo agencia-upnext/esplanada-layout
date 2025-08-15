@@ -83,7 +83,7 @@
                                     <span class="d-inline-block mr-1 h3">
                                         {{ price_value | money }}
                                     </span>
-                                    <div class=" labels d-inline-block align-text-top">
+                                    <div class="labels d-inline-block align-text-top">
                                         <div class="label label-inline label-big">
                                           -35% OFF
                                         </div>

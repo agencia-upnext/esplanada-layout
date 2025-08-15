@@ -7,11 +7,11 @@
 
 	{% set social_links = has_social_network and (not has_header_banners or not settings.top_menu_show) %}
 
-	<div class="js-topbar section-topbar {% if not (settings.topbar_colors and settings.header_colors) %}section-topbar-default{% endif %} d-none d-md-block py-2">
+	<div class="js-topbar section-topbar {% if not (settings.topbar_colors and settings.header_colors) %}section-topbar-default{% endif %} d-md-block py-2">
 		<div class="container">
-			<div class="row align-items-center justify-content-end h-100">
+			<div class="row align-items-center justify-content-center md-justify-content-end h-100">
 				{% if settings.top_menu_show %}
-					<div class="col">
+					<div class="col d-none d-md-block">
 						{% include "snipplets/navigation/navigation-secondary.tpl" %}
 					</div>
 				{% endif %}
