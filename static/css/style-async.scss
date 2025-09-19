@@ -727,8 +727,12 @@ button[readonly]:hover {
   border-bottom: none;
 }
 .modal-nav-hamburger .nav-secondary {
-  background-color: var(--main-foreground-opacity-03);
-  border-bottom: var(--border-solid) var(--main-foreground-opacity-08);
+  background-color: #1E2936;
+  border-bottom: #666666;
+
+  a {
+    color: white !important;
+  }
 }
 
 .modal-nav-hamburger .nav-list-arrow {
@@ -804,8 +808,9 @@ button[readonly]:hover {
   width: 5px;
 }
 .desktop-dropdown {
-  width: 100%;
-  left: 0px;
+  width: fit-content;
+  left: 12.6%;
+  right: 13.6%;
 }
 .desktop-dropdown .container {
   padding: 20px 40px;
@@ -1271,12 +1276,18 @@ footer.section-footer-home {
 
 /* // Instafeed */
 
+.slider-instagram > .swiper-slide {
+  box-shadow: 0px 0px 4px 0px #00000040;
+  border-radius: 4px;
+}
+
 .instafeed-link {
   position: relative;
   display: block;
   padding-top: 100%;
   overflow: hidden;
-  margin-bottom: 15px;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
 }
 .instafeed-link:hover .instafeed-img, 
 .instafeed-link:focus .instafeed-img {
@@ -1293,6 +1304,7 @@ footer.section-footer-home {
   height: 100%;
   object-fit: cover;
   transition: all 0.8s ease;
+  border-radius: 4px;
 }
 .instafeed-link .instafeed-info {
   position: absolute;
@@ -1311,8 +1323,8 @@ footer.section-footer-home {
 }
 
 .instafeed-title {
-  padding-top: 150px;
-  background: var(--accent-color);
+  // padding-top: 150px;
+  // background: var(--accent-color);
   color: var(--main-foreground);
 }
 
@@ -1551,6 +1563,10 @@ footer.section-footer-home {
 .btn + .alert-warning {
   margin-top: 15px;
   background-color: var(--main-background);
+}
+
+.js-quickshop-compare-price {
+  line-height: normal;
 }
 
 /*============================================================================
@@ -1794,6 +1810,7 @@ footer.section-footer-home {
   font-weight: 600;
   width: fit-content;
   border-radius: 4px;
+  margin: 0 auto;
 }
 
 /*============================================================================
@@ -2075,10 +2092,6 @@ footer.section-footer-home {
   }
   .section-brands-home .swiper-button-next {
     right: -35px;
-  }
-
-  .instafeed-title {
-    padding-top: 100%;
   }
 
   /* //// Product grid */

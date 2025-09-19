@@ -10,6 +10,7 @@
         <meta name="description" content="{{ page_description }}" />
         <link rel="preload" href="{{ 'css/style-critical.scss' | static_url }}" as="style" />
         <link rel="preload" href="{{ 'js/external-no-dependencies.js.tpl' | static_url }}" as="script" />
+        {{ 'js/main.js.tpl' | static_url | script_tag }}
 
         {# Preload of first image of Slider to improve LCP #}
         {% if template == 'home'%}

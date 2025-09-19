@@ -20,7 +20,7 @@
                 variant_select_icon_container: 'form-select-icon',
                 variant_select_icon_image: 'icon-inline icon-w-12 icon-md mr-2',
                 add_to_cart_button_container: 'mt-4',
-                add_to_cart_button: 'btn btn-primary btn-block'
+                add_to_cart_button: 'btn btn-primary btn-block btn-big'
             },
             icon_config: {
                 use_svg_icon: true,

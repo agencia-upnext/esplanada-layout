@@ -12,7 +12,7 @@
 
 {% set padding = padding ?? true %}
 {% set container = container ?? true %}
-{% set page_header_title_default_classes = template == 'product' ? 'h1-md font-weight-bold' : '--h1 font-weight-bold' %}
+{% set page_header_title_default_classes = template == 'product' ? '' : '--h1 font-weight-bold' %}
 
 {% if container %}
 	<div class="container">

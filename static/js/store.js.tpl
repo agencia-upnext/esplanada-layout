@@ -1484,17 +1484,24 @@ DOMContentLoaded.addEventOrExecute(() => {
         {% if has_banner_services %}
 
             createSwiper('.js-informative-banners', {
-                slidesPerView: 2,
+                slidesPerView: 1.45,
                 centerInsufficientSlides: false,
                 spaceBetween: 15,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
                 breakpoints: {
                     768: {
                         slidesPerView: 4,
                         loop: false,
+                        pagination: false,
                     }
                 }
             });
+
         {% endif %}
+
 
         {# Swiper used for demo component #}
 
@@ -1827,13 +1834,16 @@ DOMContentLoaded.addEventOrExecute(() => {
             createSwiper('.js-swiper-instafeed', {
                 lazy: true,
                 watchOverflow: true,
-                spaceBetween: itemSwiperSpaceBetween,
-                slidesPerView: 1.15,
                 observer: true,
+                
+                slidesPerView: 3,
+                spaceBetween: 10,
+
                 breakpoints: {
                     768: {
-                        slidesPerView: 3,
-                    }
+                        slidesPerView: 4,
+                        spaceBetween: 15
+                    },
                 }
             });
         {% endif %}
@@ -3921,4 +3931,3 @@ DOMContentLoaded.addEventOrExecute(() => {
     {% endif %}
 
 });
-

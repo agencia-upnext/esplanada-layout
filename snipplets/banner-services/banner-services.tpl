@@ -31,6 +31,7 @@
                         <div class="swiper-wrapper align-items-center">
                             {{ banner_services.for_each_banner_include('snipplets/banner-services/banner-services-item.tpl') }}
                         </div>
+                        <div class="js-swiper-informative-banners-pagination swiper-pagination position-relative pt-3 pb-1 d-md-none"></div>
                     </div>
                 </div>
             </div>

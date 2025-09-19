@@ -129,10 +129,10 @@
                             </div>
                         {% endfor %}
                     {% else %}
-                    <div class="col text-center">
+                    <div class="col text-center mt-2">
                         <svg class="icon-inline mr-1 icon-lg svg-icon-primary"><use xlink:href="#cart"/></svg>
                         <p class="my-2">{{ '¡Hacé tu primera compra!' | translate }}</p>
-                        {{ 'Ir a la tienda' | translate | a_tag(store.url, '', 'btn btn-primary btn-block mt-2') }}
+                        {{ 'Ir a la tienda' | translate | a_tag(store.url, '', 'btn btn-primary btn-block mt-2 py-2 px-4') }}
                     </div>
                     {% endif %}
                 </div>

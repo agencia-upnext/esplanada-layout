@@ -25,7 +25,7 @@
 
                         {% if own_color_variants and custom_color_variants %}
                             <span class="item-colors-bullet item-colors-bullet-more w-auto" title="{{ 'Ver más colores' | translate }}">
-                                {% if own_color_variants > 3 %}
+                                {% if own_color_variants > 2 %}
                                     +{{ more_color_variants }}
                                 {% else %}
                                     +{{ custom_color_variants }}

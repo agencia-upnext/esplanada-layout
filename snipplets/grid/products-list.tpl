@@ -1,5 +1,5 @@
 {% set list_data_store = template == 'category' ? 'category-grid-' ~ category.id : 'search-grid' %}
-<div class="col pt-2 pt-md-0" data-store="{{ list_data_store }}">
+<div class="col px-0 px-md-2 pt-2 pt-md-0" data-store="{{ list_data_store }}">
     {% if products %}
         <div class="js-product-table row row-grid">
             {% include 'snipplets/product_grid.tpl' %}
@@ -11,6 +11,14 @@
         {% endif %}
 
         {% include "snipplets/grid/pagination.tpl" with {infinite_scroll: pagination_type_val} %}
+
+        {# Inserção do total de produtos #}
+        {% if category.products_count > 0 %}
+            <div class="text-center">
+                <p>{{ category.products_count }} produtos</p>
+            </div>
+        {% endif %}
+
     {% else %}
         {% if template == 'category' %}
             <div class="h6 py-5 text-center" data-component="filter.message">

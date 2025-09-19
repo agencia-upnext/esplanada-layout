@@ -41,7 +41,8 @@
                         {% if option.time %}
                             <div class="opacity-60 {% if option.suboptions is not empty or option.payment_rules %}mb-1{% endif %}" data-component="option.date">
                                 {% if store.has_smart_dates %}
-                                    {{option.dates}}
+                                    {% set parts = option.dates | split(' ', 2) %}
+                                    {{ parts[0] }} até {{ parts[1] }}
                                 {% else %}
                                     {{option.time}}
                                 {% endif %}
@@ -60,7 +61,7 @@
                     </div>
                     {% if option.show_price %} 
                         <div class="col-auto text-right" data-component="option.price">
-                            <p class="mb-0 d-inline-block {% if option.cost.value == 0  %}text-accent{% endif %}">
+                            <p class="mb-0 d-inline-block {% if option.cost.value == 0  %}free-shipping-text text-accent{% endif %}">
                                 {% if option.cost.value == 0  %}
                                     {{ 'Gratis' | translate }}
                                 {% else %}

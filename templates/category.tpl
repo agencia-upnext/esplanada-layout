@@ -52,13 +52,23 @@
 
 <section class="category-body {% if settings.filters_desktop_modal %}pt-md-2{% endif %}" data-store="category-grid-{{ category.id }}">
 	<div class="container mt-3 mb-5">
-		<div class="row">
+		<div class="d-flex">
 			{% include 'snipplets/grid/filters-sidebar.tpl' %}
-			{% include 'snipplets/grid/products-list.tpl' %}
-
-			{% if category.description %}
-				<p class="{% if category_banner %}my-4 py-md-2 text-center{% else %}mb-4 pb-1{% endif %}">{{ category.description }}</p>
-			{% endif %}
+			<div class="product-list">
+				{% include 'snipplets/grid/products-list.tpl' %}
+				{% if category.description %}
+					<div class="category-description-container">
+						<div class="description-content">
+							{{ category.description }}
+						</div>
+						<button class="toggle-description-btn"
+								data-text-more="Veja mais"
+								data-text-less="Ver menos">
+							Veja mais
+						</button>
+					</div>
+				{% endif %}
+			</div>
 		</div>
 	</div>
 </section>

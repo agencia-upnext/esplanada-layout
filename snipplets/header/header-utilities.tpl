@@ -1,7 +1,17 @@
 {% if use_menu %}
 	<span class="utilities-container d-inline-block">
 		<a href="#" class="js-modal-open utilities-item btn btn-utility pl-0" data-toggle="#nav-hamburger" aria-label="{{ 'Menú' | translate }}" data-component="menu-button">
-			<svg class="icon-inline utilities-icon align-bottom"><use xlink:href="#bars"/></svg>
+			<svg width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<linearGradient id="menuGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+						<stop offset="0%" stop-color="#E85D46"/>
+						<stop offset="100%" stop-color="#EA8B44"/>
+					</linearGradient>
+				</defs>
+				<rect width="30" height="4" rx="2" fill="url(#menuGradient)"/>
+				<rect y="10" width="30" height="4" rx="2" fill="url(#menuGradient)"/>
+				<rect y="20" width="30" height="4" rx="2" fill="url(#menuGradient)"/>
+			</svg>
 		</a>
 	</span>
 {% elseif use_account %}
@@ -19,19 +29,17 @@
 						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 0C6.17392 0 4.90215 0.526784 3.96447 1.46447C3.02678 2.40215 2.5 3.67392 2.5 5C2.5 6.32608 3.02678 7.59785 3.96447 8.53553C4.90215 9.47322 6.17392 10 7.5 10C8.82608 10 10.0979 9.47322 11.0355 8.53553C11.9732 7.59785 12.5 6.32608 12.5 5C12.5 3.67392 11.9732 2.40215 11.0355 1.46447C10.0979 0.526784 8.82608 0 7.5 0ZM5 11.25C3.67392 11.25 2.40215 11.7768 1.46447 12.7145C0.526784 13.6521 0 14.9239 0 16.25V17.5C0 18.163 0.263392 18.7989 0.732233 19.2678C1.20107 19.7366 1.83696 20 2.5 20H12.5C13.163 20 13.7989 19.7366 14.2678 19.2678C14.7366 18.7989 15 18.163 15 17.5V16.25C15 14.9239 14.4732 13.6521 13.5355 12.7145C12.5979 11.7768 11.3261 11.25 10 11.25H5Z" fill="#E85D46"/>
 					</svg>
 				</div>
-				<div class="col pl-2 text-left font-small">
+				<div class="col pl-2 text-left">
 					{% if not customer %}
 						<p class="text m-0">
-							{{ "Iniciar sesión" | translate | a_tag(store.customer_login_url, '', 'text-underline') }} 
+							{{ "Iniciar sessão" | a_tag(store.customer_login_url, '', 'text-underline') }} ou
 							{% if 'mandatory' not in store.customer_accounts %}
-								{{ 'o' | translate }}
-								{{ "Crear cuenta" | translate | a_tag(store.customer_register_url, '', 'text-underline') }}
+								{{ "Criar conta" | a_tag(store.customer_register_url, '', 'text-underline') }}
 							{% endif %}
 						</p>
 					{% else %}
 						{% set customer_short_name = customer.name|split(' ')|slice(0, 1)|join %} 
-						{{ "¡Hola, {1}!" | t(customer_short_name) | a_tag(store.customer_home_url, '', 'font-weight-bold mr-1') }}
-						{% if not header_desktop %}.{% endif %}
+						{{ "¡Hola, {1}!" | t(customer_short_name) | a_tag(store.customer_home_url, '', 'ml-1 font-weight-bold mr-1') }}
 						{{ "Cerrar sesión" | translate | a_tag(store.customer_logout_url, '', 'ml-1 text-underline') }}
 					{% endif %}
 				</div>

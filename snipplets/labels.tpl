@@ -1,29 +1,15 @@
-{% set label_accent_classes = 'label label-inline ' %}
+{% if product.compare_at_price > product.price %}
+{% set price_discount_percentage = ((product.compare_at_price) - (product.price)) * 100 / (product.compare_at_price) %}
+{% endif %}
 
-{% set inline_product_detail_label = not labels_floating and product_detail %}
-
-{# Prioritize custom promotion label when is not percentage off for product detail #}
-{% set promotional_offer = product.promotional_offer %}
-{% set has_custom_promotion_label = not promotional_offer.isPercentageOff and promotional_offer.custom_label and promotional_offer.custom_label | trim %}
-
-{{ component(
-  'labels', {
-    prioritize_promotion_over_offer: product_detail ? false : true,
-    promotion_nxm_long_wording: false,
-    promotion_quantity_long_wording: true,
-    free_shipping_and_no_stock_only: labels_floating ? true : false,
-    offer_only: inline_product_detail_label and not has_custom_promotion_label ? true : false,
-    promotion_only: inline_product_detail_label and has_custom_promotion_label ? true : false,
-    promotion_and_offer_only: not labels_floating and not product_detail ? true : false,
-    offer_negative_discount_percentage: not labels_floating ? true : false,
-    group_data_store: labels_floating ? false : true,
-    labels_classes: {
-      group: (labels_floating ? 'js-labels-floating-group labels-absolute' : 'd-inline-block align-text-top'),
-      promotion: label_accent_classes  ~ (product_detail ? 'label-big'),
-      promotion_secondary_text: 'text-lowercase',
-      offer: 'js-offer-label ' ~ label_accent_classes ~ (product_detail ? 'label-big label-offer'),
-      shipping: 'label label-accent ' ~ (product_detail ? 'label-big'),
-      no_stock: 'js-stock-label label label-default ' ~ (product_detail ? 'label-big'),
-    },
-  })
-}}
+{% if not product.has_stock or product.free_shipping or product.compare_at_price %}
+  <div class="labels">
+    {% if not product.has_stock and not quickshop %}
+      <div class="{% if product_detail %}js-stock-label {% endif %}label label-default">{{ "Sin stock" | translate }}</div>
+    {% else %}
+    {% if product.free_shipping %}
+      <div class="label label-secondary">{{ "Envío gratis" | translate }}</div>
+    {% endif %}
+    {% endif %}
+  </div>
+{% endif %}

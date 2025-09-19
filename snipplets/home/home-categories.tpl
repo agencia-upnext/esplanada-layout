@@ -36,7 +36,7 @@
 
                                         {% if slide.link %}
                                             {% set category_handle = slide.link | trim('/') | split('/') | last %}
-                                            {% include 'snipplets/home/home-categories-name.tpl' %}
+                                            {# {% include 'snipplets/home/home-categories-name.tpl' %} #}
                                         </div>
                                     </a>
                                 {% else %}

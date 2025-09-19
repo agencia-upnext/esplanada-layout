@@ -13,6 +13,9 @@
                                     <img srcset="" class="js-item-image js-quickshop-img quickshop-image img-absolute-centered"/>
                                 </div>
                             </div>
+                            {% if not reduced_item %}
+                                {# {% include 'snipplets/labels.tpl' with {product_detail: true, on_product_image: true} %} #}
+                            {% endif %}
                         </div>
                         <div class="js-item-variants col-md-6 p-3 pt-md-2 pr-md-3">
                             <div class="row no-gutters align-items-start mr-md-1 mb-3 d-none d-md-flex">
@@ -25,38 +28,23 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="item-price-container {% if settings.quick_shop and not reduced_item %}mb-3{% endif %}" data-store="product-item-price-{{ product.id }}">
-                                <span class="js-compare-price-display price-compare d-block" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %}style="display:inline-block;"{% endif %}>
-                                    {% if not reduced_item and product.compare_at_price %}
-                                        {{ product.compare_at_price | money }}
-                                    {% endif %}
-                                </span>
+                            <div class="item-price-container mb-3" data-store="product-item-price-{{ product.id }}">
 
-                                <div class="d-block mb-1 mr-1">
-                                    <span class="js-price-display item-price {% if settings.payment_discount_price %}font-body{% endif %}" data-product-price="{{ product.price }}">
-                                        {{ product.price | money }}
+                                <div class="js-quickshop-compare-price-container" style="display: none;">
+                                    <span class="price-compare d-flex align-items-center">
+                                        <p class="mb-0 js-quickshop-compare-price"></p>
+                                        <div class="js-quickshop-discount-flag-container ml-2"></div>
                                     </span>
-                                    {% if not reduced_item %}
-                                        {% include 'snipplets/labels.tpl' %}
-                                    {% endif %}
                                 </div>
 
-                                {% set product_can_show_installments = product.show_installments and product.display_price and product.get_max_installments.installment > 1 and settings.product_installments and not reduced_item %}
+                                <div class="d-block mb-1 mr-1">
+                                    <span class="js-price-display item-price"></span>
+                                </div>
 
-                                {% set discount_price_spacing_classes = product_can_show_installments ? 'mb-2' %}
+                                <div class="js-quickshop-payment-discount-container"></div>
 
-                                {{ component('payment-discount-price', {
-                                        visibility_condition: settings.payment_discount_price and not reduced_item,
-                                        location: 'product',
-                                        container_classes: discount_price_spacing_classes ~ " mt-2 font-weight-bold font-smallest",
-                                        text_classes: {
-                                            price: 'font-small',
-                                        },
-                                    }) 
-                                }}
-                                {% if product_can_show_installments %}
-                                    {{ component('installments', {'location' : 'product_item' , 'short_wording' : true, container_classes: { installment: "item-installments"}}) }}
-                                {% endif %}
+                                <div class="js-quickshop-installments-container"></div>
+
                             </div>
                             {# Image is hidden but present so it can be used on cart notifiaction #}
 
@@ -77,25 +65,3 @@
         {% endblock %}
     {% endembed %}
 {% endif %}
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    document.addEventListener('click', function(e) {
-        const quickshopButton = e.target.closest('.js-quickshop-modal-open');
-
-        if (quickshopButton) {
-            e.preventDefault();
-
-            const productUrl = quickshopButton.dataset.productUrl;
-
-            if (productUrl) {
-                const productLink = document.querySelector('.product_link_quickshop');
-
-                if (productLink) {
-                    productLink.setAttribute('href', productUrl);
-                }
-            }
-        }
-    });
-});
-</script>

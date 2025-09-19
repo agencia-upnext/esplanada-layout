@@ -6,6 +6,13 @@
 {% if has_featured_link %}
 	{% set featured_link_url = settings.featured_link_url | split('://') | last | split('/') | slice(1) | join('/') | trim('/') %}
 {% endif %}
+	{% if not megamenu and not item.subitems %}
+		<li class="nav-utility-links">
+			<a class="nav-list-link" href="/produtos">Entrega Imediata</a>
+			<a class="nav-list-link" href="/produtos/?sort_by=created-descending">Lançamentos</a>
+			<a class="nav-list-link" href="/produtos/?sort_by=best-selling">Mais Vendidos</a>
+		</li>
+	{% endif %}
 
 {% for item in navigation %}
 	
@@ -22,7 +29,7 @@
 				<a class="{% if hamburger %}js-toggle-menu-panel align-items-center{% endif %} nav-list-link position-relative {{ featured_link_classes }} {{ item.current ? 'selected' : '' }}" href="{% if megamenu and item.url %}{{ item.url }}{% else %}#{% endif %}">{{ item.name }}
 					{% if hamburger %}
 						<span class="nav-list-arrow ml-1">
-							<svg class="icon-inline icon-lg svg-icon-text"><use xlink:href="#arrow"/></svg>
+							<svg class="icon-inline icon-lg svg-icon-text"><use xlink:href="#plus"/></svg>
 						</span>
 					{% endif %}
 				</a>

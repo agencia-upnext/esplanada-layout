@@ -162,11 +162,11 @@
 
                         <div class="row no-gutters mt-3 align-items-center flex-product-quantity">
 
-                            {% if show_product_quantity %}
+                            {# {% if show_product_quantity %}
                                 {% include "snipplets/product/product-quantity.tpl" with {quickshop: true} %}
-                            {% endif %}
+                            {% endif %} #}
 
-                            <div class="{% if show_product_quantity %}col-8 col-md-8{% else %}col-12{% endif %}">
+                            <div class="{% if show_product_quantity %}col{% else %}col-12{% endif %}">
 
                                 <input type="submit" class="js-addtocart js-prod-submit-form btn-add-to-cart btn btn-primary btn-big w-100 {{ state }}" value="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} />
 
@@ -180,18 +180,19 @@
 
             {% endif %}
             {% set show_labels = not product.has_stock or product.compare_at_price or product.hasVisiblePromotionLabel %}
-            <div class="item-description pt-3" data-store="product-item-info-{{ product.id }}">
+            <div class="item-description pt-4" data-store="product-item-info-{{ product.id }}">
                 <a href="{{ product_url_with_selected_variant }}" title="{{ product.name }}" aria-label="{{ product.name }}" class="item-link">
-                    {% if settings.product_color_variants and not reduced_item %}
+                    {% if settings.product_color_variants %}
                         {% include 'snipplets/grid/item-colors.tpl' %}
                     {% endif %}
                     <div class="js-item-name item-name mb-2 opacity-80" data-store="product-item-name-{{ product.id }}">{{ product.name }}</div>
                     {% if product.display_price %}
                         <div class="item-price-container {% if settings.quick_shop and not reduced_item %}mb-3{% endif %}" data-store="product-item-price-{{ product.id }}">
-                            <span class="js-compare-price-display price-compare d-block" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %}style="display:inline-block;"{% endif %}>
+                            <span class="js-compare-price-display price-compare d-flex align-items-center" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %}style="display:inline-block;"{% endif %}>
                                 {% if not reduced_item and product.compare_at_price %}
-                                    {{ product.compare_at_price | money }}
+                                    <p class="mb-0">{{ product.compare_at_price | money }}</p>
                                 {% endif %}
+                                {% include 'snipplets/discount-flag.tpl' %}
                             </span>
 
                             <div class="d-block mb-1 mr-1">

@@ -6,7 +6,7 @@
         {# Product name #}
         <h2 class="mb-3">{{ product.name }}</h2>
     {% else %}
-        {% embed "snipplets/page-header.tpl" with {container: false, padding: false, page_header_title_class: 'js-product-name mb-3'} %}
+        {% embed "snipplets/page-header.tpl" with {container: false, padding: false, page_header_title_class: 'js-product-name mb-1'} %}
             {% block page_header_text %}{{ product.name }}{% endblock page_header_text %}
         {% endembed %}
     {% endif %}
@@ -22,13 +22,16 @@
     {# Product price #}
 
     <div class="price-container" data-store="product-price-{{ product.id }}">
-        <div class="mb-3">
-            <span class="d-inline-block mr-1">
-            	<div class="js-price-display h3 font-huge" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %} data-product-price="{{ product.price }}">{% if product.display_price %}{{ product.price | money }}{% endif %}</div>
-            </span>
-            {% include 'snipplets/labels.tpl' with {product_detail: true}  %}
-            <span class="d-block font-big title-font-family mt-1">
-               <div id="compare_price_display" class="js-compare-price-display price-compare {% if settings.payment_discount_price %}font-body{% endif %}" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %} style="display:block;"{% endif %}>{% if product.compare_at_price and product.display_price %}{{ product.compare_at_price | money }}{% endif %}</div>
+        <div class="">
+            <span class="d-flex align-items-center font-big title-font-family mt-1 mb-2">
+               <div id="compare_price_display" class="js-compare-price-display price-compare {% if settings.payment_discount_price %}font-body{% endif %}" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %} style="display:block;"{% endif %}>
+                {% if product.compare_at_price and product.display_price %}
+                    <p class="mb-0">
+                        {{ product.compare_at_price | money }}
+                    </p>
+                {% endif %}
+               </div>
+               {% include 'snipplets/discount-flag.tpl' %}
             </span>
             {{ component('price-without-taxes', {
                     container_classes: "mt-2 mb-1 pb-1 font-small opacity-60",
@@ -43,6 +46,9 @@
                     },
                 })
             }}
+            <span class="d-inline-block mr-1">
+            	<div class="js-price-display h3 font-huge" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %} data-product-price="{{ product.price }}">{% if product.display_price %}{{ product.price | money }}{% endif %}</div>
+            </span>
         </div>
 
         {% set installments_info = product.installments_info_from_any_variant %}
@@ -65,13 +71,9 @@
                     </div>
             </div>
         {% if not home_main_product and (show_payments_info or hasDiscount) %}
-                <a id="btn-installments" class="font-small" href="#" {% if not (product.get_max_installments and product.get_max_installments(false)) %}style="display: none;"{% endif %}>
-                    <svg class="icon-inline icon-lg svg-icon-text"><use xlink:href="#credit-card"/></svg>
-                    {% if not hasDiscount and not settings.product_detail_installments %}
-                        {{ "Ver medios de pago" | translate }}
-                    {% else %}
-                        {{ "Ver más detalles" | translate }}
-                    {% endif %}
+                <a id="btn-installments" class="font-small btn-installments" href="#" {% if not (product.get_max_installments and product.get_max_installments(false)) %}style="display: none;"{% endif %}>
+                    {# <svg class="icon-inline icon-lg svg-icon-text"><use xlink:href="#credit-card"/></svg> #}
+                    <p>Formas de pagamento</p>
                 </a>
             </div>
         {% endif %}
@@ -84,7 +86,7 @@
         {% set has_free_shipping = cart.free_shipping.cart_has_free_shipping or cart.free_shipping.min_price_free_shipping.min_price %}
         {% set has_product_free_shipping = product.free_shipping %}
 
-        {% if not product.is_non_shippable and show_product_quantity and (has_free_shipping or has_product_free_shipping) %}
+        {# {% if not product.is_non_shippable and show_product_quantity and (has_free_shipping or has_product_free_shipping) %}
             <div class="free-shipping-message mb-4">
                 <span class="float-left mr-1">
                     <svg class="icon-inline svg-icon-accent icon-lg"><use xlink:href="#truck"/></svg>
@@ -101,10 +103,10 @@
                     </div>
                 {% endif %}
             </div>
-        {% endif %}
+        {% endif %} #}
     </div>
 
-    {{ component('promotions-details', {
+    {# {{ component('promotions-details', {
         promotions_details_classes: {
             container: 'js-product-promo-container px-0 mb-2' ~ (not home_main_product ? ' col-md-8' : ''),
             promotion_title: 'mb-2 mt-4 text-accent',
@@ -120,7 +122,7 @@
         },
         accordion_show_svg_id: 'chevron-down',
         accordion_hide_svg_id: 'chevron-down',
-    }) }}
+    }) }} #}
 
 
     {# Product form, includes: Variants, CTA and Shipping calculator #}
@@ -140,22 +142,22 @@
             </div>
         {% endif %}
 
-        <div class="row flex-product-quantity no-gutters mb-4 align-items-center {% if settings.product_stock %}mb-md-3{% endif %}">
+        <div class="row flex-product-quantity no-gutters mb-0 align-items-center {% if settings.product_stock %}mb-md-3{% endif %} {% if template == "product" %} fixed-buy-button {% endif %}">
             {% set product_quantity_home_product_value = home_main_product ? true : false %}
-            {% if show_product_quantity %}
+            {# {% if show_product_quantity %}
                 {% include "snipplets/product/product-quantity.tpl" with {home_main_product: product_quantity_home_product_value} %}
-            {% endif %}
+            {% endif %} #}
             {% set state = store.is_catalog ? 'catalog' : (product.available ? product.display_price ? 'cart' : 'contact' : 'nostock') %}
             {% set texts = {'cart': "Agregar al carrito", 'contact': "Consultar precio", 'nostock': "Sin stock", 'catalog': "Consultar"} %}
-            <div class="{% if show_product_quantity %}col-8 {% if not home_main_product %}col-md-8{% endif %}{% else %}col-12{% endif %}">
+            <div class="{% if show_product_quantity %}col{% if not home_main_product %}{% endif %}{% else %}col-12{% endif %}">
 
                 {# Add to cart CTA #}
 
-                <input type="submit" class="js-addtocart js-prod-submit-form btn-add-to-cart btn btn-primary btn-big btn-block {{ state }}" value="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-store="product-buy-button" data-component="product.add-to-cart"/>
-
-                {# Fake add to cart CTA visible during add to cart event #}
-
-                {% include 'snipplets/placeholders/button-placeholder.tpl' with {custom_class: "btn-big"} %}
+                <div class="buy-button">
+                    <input type="submit" class="js-addtocart js-prod-submit-form btn-add-to-cart btn btn-primary btn-big btn-block {{ state }}" value="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-store="product-buy-button" data-component="product.add-to-cart"/>
+                    {# Fake add to cart CTA visible during add to cart event #}
+                    {% include 'snipplets/placeholders/button-placeholder.tpl' with {custom_class: "btn-big"} %}
+                </div>
 
             </div>
 
