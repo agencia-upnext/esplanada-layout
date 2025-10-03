@@ -54,7 +54,7 @@
   </div>
 
   {% if has_dimensions %}
-    <div id="Dimensions" class="tab-content" style="display: block;">
+    <div id="Dimensions" class="tab-content-description" style="display: block;">
       <div id="api-product-characteristics" class="user-content">
         {% include 'snipplets/product/skeleton.tpl' %}
       </div>
@@ -65,7 +65,7 @@
   {% endif %}
 
   {% if has_description %}
-    <div id="Description" class="tab-content">
+    <div id="Description" class="tab-content-description">
       <div class="product-description user-content">
         {{ product.description }}
       </div>

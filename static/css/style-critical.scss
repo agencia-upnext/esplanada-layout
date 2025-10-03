@@ -6634,7 +6634,7 @@ div.labels .label {
   border-radius: 60px;
   transition: all ease 0.2s;
 }
-.tab-content {
+.tab-content-description {
   position: relative;
   display: none;
   padding: 1.4rem 1.2rem;
@@ -6647,7 +6647,7 @@ div.labels .label {
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
 }
-.tab-content::after {
+.tab-content-description::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -6662,10 +6662,10 @@ div.labels .label {
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
-.tab-content.expanded {
+.tab-content-description.expanded {
   max-height: 1000vw;
 }
-.tab-content.expanded::after {
+.tab-content-description.expanded::after {
   opacity: 0;
 }
 .see-more-btn {
