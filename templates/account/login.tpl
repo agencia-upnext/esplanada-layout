@@ -6,6 +6,20 @@
 
 <section class="account-page mb-4">
 	<div class="container">
+		<div class="d-flex align-items-center warning-box mb-4">
+			<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" class="mr-2 d-md-block d-none">
+				<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+				<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+				<g id="SVGRepo_iconCarrier"> <g clip-path="url(#clip0_429_11160)"> <circle cx="12" cy="11.9999" r="9" stroke="#1e2936" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/> <rect x="12" y="8" width="0.01" height="0.01" stroke="#1e2936" stroke-width="3.75" stroke-linejoin="round"/> <path d="M12 12V16" stroke="#1e2936" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/> </g> <defs> <clipPath id="clip0_429_11160"> <rect width="24" height="24" fill="white"/> </clipPath> </defs> </g>
+			</svg>
+
+			<p class="mb-0">
+				Estamos de cara nova, para ter acesso ao seu cadastro, por favor clique em "Esqueceu a Senha" e crie uma nova senha de acesso.
+				Caso tenha um pedido antigo que deseja acompanhar <a href="https://wa.me/5511998804287" target="_blank" rel="noopener noreferrer">clique aqui</a>
+				e acesse o whatsapp do nosso time de pós venda.
+			</p>
+		</div>
+
 		<div class="row">
 			<div class="col-md-5">
 				{{ component('forms/account/login' , {

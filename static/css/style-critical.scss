@@ -6622,6 +6622,17 @@ div.labels .label {
 .tab-link.active {
   color: #eb6642;
 }
+.warning-box {
+  background-color: #eadfd6;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.warning-box a {
+  text-decoration: underline;
+  font-weight: 800;
+}
+
 .tab-link.active::after {
   content: "";
   position: absolute;
@@ -6636,7 +6647,6 @@ div.labels .label {
 }
 .tab-content-description {
   position: relative;
-  display: none;
   padding: 1.4rem 1.2rem;
   border-top: none;
   background-color: white;

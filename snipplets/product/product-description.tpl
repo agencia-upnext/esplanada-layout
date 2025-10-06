@@ -46,22 +46,22 @@
 <div class="product-tabs-container {% if not has_description %}mt-2 mt-md-0{% endif %} {% if settings.full_width_description %}container pt-md-3{% else %}px-md-3{% endif %} pb-md-4" data-store="product-description-{{ product.id }}" data-sku="{{ product.selected_or_first_available_variant.sku }}">
   <div class="tabs-nav">
     {% if has_dimensions %}
-      <button class="tab-link active" onclick="openTab(event, 'Dimensions')">Dimensões do Produto</button>
+      <!--<button class="tab-link active" onclick="openTab(event, 'Dimensions')">Dimensões do Produto</button>-->
     {% endif %}
     {% if has_description %}
-      <button class="tab-link" onclick="openTab(event, 'Description')">Descrição</button>
+      <button class="tab-link active">Descrição</button>
     {% endif %}
   </div>
 
   {% if has_dimensions %}
-    <div id="Dimensions" class="tab-content-description" style="display: block;">
+    <!--<div id="Dimensions" class="tab-content-description" style="display: block;">
       <div id="api-product-characteristics" class="user-content">
         {% include 'snipplets/product/skeleton.tpl' %}
       </div>
       <button class="see-more-btn" id="btn-Dimensions" onclick="toggleSeeMore(event, 'Dimensions')">
         Veja mais
       </button>
-    </div>
+    </div>-->
   {% endif %}
 
   {% if has_description %}
