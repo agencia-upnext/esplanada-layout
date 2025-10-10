@@ -7,19 +7,39 @@
 
 {% set pos_venda = {
     'Sudeste': [
-        { 'state': 'Minas Gerais', 'city': 'Belo Horizonte e Região Metropolitana', 'phone': '(31) 2595-0708' }, { 'state': 'Minas Gerais', 'city': 'Governador Valadares', 'phone': '(33) 4042-1077' }, { 'state': 'Minas Gerais', 'city': 'Poços de Caldas', 'phone': '(35) 3042-9747' }, { 'state': 'Rio de Janeiro', 'city': 'Capital e Interior', 'phone': '(21) 4040-4929' }, { 'state': 'Espírito Santo', 'city': 'Vitória', 'phone': '(27) 4040-4047' }, { 'state': 'São Paulo', 'city': 'Bauru e Região Noroeste', 'phone': '(14) 3500-9344' }, { 'state': 'São Paulo', 'city': 'Campinas e Região', 'phone': '(31) 2595-0708' }, { 'state': 'São Paulo', 'city': 'Região do Vale do Paraíba e Litoral Norte', 'phone': '(17) 2786-1631' }, { 'state': 'São Paulo', 'city': 'Região do Vale do Paraíba e Litoral Norte', 'phone': '(17) 2786-1631' }, { 'state': 'São Paulo', 'city': 'Região do Vale do Paraíba e Litoral Norte', 'phone': '(17) 2786-1631' }, { 'state': 'São Paulo', 'city': 'Região do Vale do Paraíba e Litoral Norte', 'phone': '(17) 2786-1631' }, { 'state': 'São Paulo', 'city': 'Região do Vale do Paraíba e Litoral Norte', 'phone': '(17) 2786-1631' }, { 'state': 'São Paulo', 'city': 'Região do Vale do Paraíba e Litoral Norte', 'phone': '(17) 2786-1631' }, { 'state': 'São Paulo', 'city': 'Região do Vale do Paraíba e Litoral Norte', 'phone': '(17) 2786-1631' }
+        { 'state': 'Minas Gerais', 'city': 'Belo Horizonte e Região Metropolitana', 'phone': '(31) 2595-0708' },
+        { 'state': 'Minas Gerais', 'city': 'Governador Valadares', 'phone': '(33) 4042-1077' },
+        { 'state': 'Minas Gerais', 'city': 'Poços de Caldas', 'phone': '(35) 3042-9747' },
+        { 'state': 'Rio de Janeiro', 'city': 'Capital e Interior', 'phone': '(21) 4040-4929' },
+        { 'state': 'Espírito Santo', 'city': 'Vitória', 'phone': '(27) 4040-4047' },
+        { 'state': 'São Paulo', 'city': 'Bauru e Região Noroeste', 'phone': '(14) 3500-9344' },
+        { 'state': 'São Paulo', 'city': 'Campinas e Região', 'phone': '(31) 2595-0708' },
+        { 'state': 'São Paulo', 'city': 'Região do Vale do Paraíba e Litoral Norte', 'phone': '(17) 2786-1621' },
+        { 'state': 'São Paulo', 'city': 'Ribeirão Preto e Região', 'phone': '(16) 3600-8655' },
+        { 'state': 'São Paulo', 'city': 'Santos e Litoral Sul', 'phone': '(15) 3500-8708' },
+        { 'state': 'São Paulo', 'city': 'Sorocaba e Região', 'phone': '(13) 2191-1113' },
+        { 'state': 'São Paulo', 'city': 'São José dos Campos e Região', 'phone': '(12) 3600-2606' },
+        { 'state': 'São Paulo', 'city': 'SP Capital e Interior', 'phone': '(11) 4858-8060' }
     ],
     'Sul': [
-        { 'state': 'Paraná', 'city': 'Curitiba e Região', 'phone': '(41) 4042-1234' }, { 'state': 'Paraná', 'city': 'Londrina e Região', 'phone': '(43) 3003-5678' }, { 'state': 'Santa Catarina', 'city': 'Florianópolis e Litoral', 'phone': '(48) 4042-9876' }, { 'state': 'Rio Grande do Sul', 'city': 'Porto Alegre e Região Metropolitana', 'phone': '(51) 4042-5432' }
+        { 'state': 'Paraná', 'city': 'Curitiba e Região', 'phone': '(41) 4042-1234' },
+        { 'state': 'Paraná', 'city': 'Londrina e Região', 'phone': '(43) 3003-5678' },
+        { 'state': 'Santa Catarina', 'city': 'Florianópolis e Litoral', 'phone': '(48) 4042-9876' },
+        { 'state': 'Rio Grande do Sul', 'city': 'Porto Alegre e Região Metropolitana', 'phone': '(51) 4042-5432' }
     ],
     'Centro-Oeste': [
-        { 'state': 'Distrito Federal', 'city': 'Brasília', 'phone': '(61) 3181-0987' }, { 'state': 'Goiás', 'city': 'Goiânia', 'phone': '(62) 3181-1234' }, { 'state': 'Mato Grosso', 'city': 'Cuiabá', 'phone': '(65) 3181-5678' }
+        { 'state': 'Distrito Federal', 'city': 'Brasília', 'phone': '(61) 3181-0987' },
+        { 'state': 'Goiás', 'city': 'Goiânia', 'phone': '(62) 3181-1234' },
+        { 'state': 'Mato Grosso', 'city': 'Cuiabá', 'phone': '(65) 3181-5678' }
     ],
     'Norte': [
-        { 'state': 'Amazonas', 'city': 'Manaus', 'phone': '(92) 3181-0101' }, { 'state': 'Pará', 'city': 'Belém', 'phone': '(91) 3181-0202' }
+        { 'state': 'Amazonas', 'city': 'Manaus', 'phone': '(92) 3181-0101' },
+        { 'state': 'Pará', 'city': 'Belém', 'phone': '(91) 3181-0202' }
     ],
     'Nordeste': [
-        { 'state': 'Bahia', 'city': 'Salvador', 'phone': '(71) 3181-0303' }, { 'state': 'Pernambuco', 'city': 'Recife', 'phone': '(81) 3181-0404' }, { 'state': 'Ceará', 'city': 'Fortaleza', 'phone': '(85) 3181-0505' }
+        { 'state': 'Bahia', 'city': 'Salvador', 'phone': '(71) 3181-0303' },
+        { 'state': 'Pernambuco', 'city': 'Recife', 'phone': '(81) 3181-0404' },
+        { 'state': 'Ceará', 'city': 'Fortaleza', 'phone': '(85) 3181-0505' }
     ]
 } %}
 
