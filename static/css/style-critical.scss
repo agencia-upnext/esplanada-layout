@@ -4992,6 +4992,10 @@ input[type="number"] {
 
 .head-logo-row {
   padding: 15px 0;
+
+  @include breakpoint(desktop) {
+    padding: 8px 0 0 0;
+  }
 }
 
 .nav-desktop {
@@ -5019,7 +5023,7 @@ ul.nav-list[data-component="menu"] > li > a[href*="/outlet/"] {
 .nav-desktop-list {
   height: 100%;
   margin: 0;
-  padding: 15px 0;
+  padding: 2px 0 5px 0;
   list-style: none;
   white-space: nowrap !important;
 }

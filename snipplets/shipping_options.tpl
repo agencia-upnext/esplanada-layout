@@ -138,7 +138,8 @@
     {% endif %}
 
     {% if store.has_smart_dates and show_time %}
-        <div class="font-small mb-3">{{"El tiempo de entrega <strong>no considera feriados</strong>." | translate}}</div>
+        <div class="font-small mb-1">{{"El tiempo de entrega <strong>no considera feriados</strong>." | translate}}</div>
+        <div class="font-small mb-3">Caso já possua itens no carrinho <b>o valor de frete pode variar.</b></div>
     {% endif %}
 {% else %}
 <span>{{"No hay costos de envío para el código postal dado." | translate}}</span>
