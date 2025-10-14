@@ -33,7 +33,7 @@
     },
     'q9': {
         'question': 'Qual o prazo e os locais de entrega?',
-        'answer': '<p>O prazo de entrega pode variar de acordo com a região que você reside. O prazo começa a contar a partir da aprovação de pagamento pela operadora de cartão ou confirmação de pagamento do boleito por parte do banco emissor.</p><p>Consulte o seu CEP no campo logo abaixo do botão “Comprar”, onde você poderá visualizar se entregamos em sua região.</p>'
+        'answer': '<p>O prazo de entrega pode variar de acordo com a região que você reside. O prazo começa a contar a partir da aprovação de pagamento pela operadora de cartão ou confirmação de pagamento do boleto por parte do banco emissor.</p><p>Consulte o seu CEP no campo logo abaixo do botão “Comprar”, onde você poderá visualizar se entregamos em sua região.</p>'
     },
     'q10': {
         'question': 'Como funciona a entrega do móvel?',
