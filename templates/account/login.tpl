@@ -15,7 +15,7 @@
 
 			<p class="mb-0">
 				Estamos de cara nova! Para acessar seu cadastro, clique em "Esqueceu a Senha" e crie uma nova senha de acesso.
-				Se você tiver um pedido antigo que deseja acompanhar, <a href="https://p15993151c1prd-store.occa.ocs.oraclecloud.com/orders" target="_blank" rel="noopener noreferrer">clique aqui</a>
+				Se você tiver um pedido antigo que deseja acompanhar, <a href="https://api.whatsapp.com/send?phone=5511998804287" target="_blank" rel="noopener noreferrer">clique aqui</a>
 				para visualizá-lo.
 			</p>
 		</div>
