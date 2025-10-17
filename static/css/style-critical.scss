@@ -3602,7 +3602,11 @@ h6,
 
 .product-installments.installment-no-interest {
   color: #666666;
-  font-size: 13px;
+  font-size: 14px;
+}
+
+.product-installment-amount, .installment-short-separator, .product-installment-value {
+  font-weight: 700;
 }
 
 .font-huge {
@@ -4705,10 +4709,14 @@ input[type="number"] {
     line-height: normal;
     font-weight: 500;
     font-size: 13px;
-  }
 
+    @include breakpoint(tablet) {
+      display: none !important;
+    }
+  }
+  
   @include breakpoint(tablet) {
-    display: none !important;
+    margin: 0 0 0 1.5rem;
   }
 }
 
@@ -5260,6 +5268,10 @@ ul.nav-list[data-component="menu"] > li > a[href*="/outlet/"] {
 
 .MF_header {
   margin-left: 1.5rem !important;
+
+  @include breakpoint(tablet) {
+    margin: .8rem !important;
+  }
 }
 
 .MF_product_save {
@@ -6298,7 +6310,7 @@ div.labels .label {
 }
 .item-price {
   color: var(--main-foreground);
-  font-size: 20px;
+  font-size: 20px !important;
   font-weight: 700;
 }
 .item-price-container {

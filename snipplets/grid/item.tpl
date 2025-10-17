@@ -196,7 +196,7 @@
                             </span>
 
                             <div class="d-block mb-1 mr-1">
-                                <span class="js-price-display item-price {% if settings.payment_discount_price %}font-body{% endif %}" data-product-price="{{ product.price }}">
+                                <span class="js-price-display item-price {% if settings.payment_discount_price %}{% endif %}" data-product-price="{{ product.price }}">
                                     {{ product.price | money }}
                                 </span>
                                 {% if not reduced_item %}

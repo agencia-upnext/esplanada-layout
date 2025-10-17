@@ -119,14 +119,14 @@
 					{% endif %}
 
 					{% if "seal_img.jpg" | has_custom_image or settings.custom_seal_code %}
-						<div class="{% if settings.custom_seal_code %}js-accordion-private-container accordion{% endif %} col-md">
+						<div class="{% if settings.custom_seal_code %}{% endif %} col-md">
 							<div class="font-big footer-title {% if settings.footer_menus_toggle %}col py-2{% else %}py-2{% endif %}">
 								<a href="#" class="js-accordion-private-toggle-mobile row align-items-center">
 									SEGURANÇA
 								</a>
 							</div>
 
-							<div class="js-accordion-private-content js-accordion-private-content-mobile">
+							<div class="js-accordion-private-content">
 								<ul class="list py-2">
 									<li class="footer-menu-item">
 										{% if "seal_img.jpg" | has_custom_image %}
