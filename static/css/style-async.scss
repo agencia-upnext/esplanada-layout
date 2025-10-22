@@ -368,6 +368,33 @@ button[readonly]:hover {
 
 /* // Modals */
 
+.modal-with-fixed-footer .modal-scrollable-area {
+  // background:
+  //   linear-gradient(white 30%, rgba(255,255,255,0)),
+  //   linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+  //   radial-gradient(farthest-side at 50% 0, rgba(0,0,0,0.2), rgba(0,0,0,0)),
+  //   radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,0.2), rgba(0,0,0,0)) 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+  background-attachment: local, local, scroll, scroll;
+}
+
+.modal-with-fixed-footer .modal-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.modal-with-fixed-footer .modal-footer.has-scroll-above {
+  box-shadow:
+    0 -24px 40px -12px rgba(0, 0, 0, 0.28),
+    0 -72px 140px -36px rgba(0, 0, 0, 0.22),
+    0 -160px 280px -70px rgba(0, 0, 0, 0.18),
+    0 -280px 440px -100px rgba(0, 0, 0, 0.14),
+    0 -440px 640px -140px rgba(0, 0, 0, 0.10);
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -1688,8 +1715,8 @@ footer.section-footer-home {
 }
 
 .cart-item-image-col {
-  width: 70px;
-  height: 80px;
+  width: 140px;
+  height: 140px;
 }
 .cart-item-image {
   width: 100%;

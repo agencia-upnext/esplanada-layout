@@ -58,6 +58,7 @@
                                 <i>{{option.payment_rules}}</i>
                             </div>
                         {% endif %}
+                        <p class="font-smallest mt-2">Transporte especializado para móveis grandes</p>
                     </div>
                     {% if option.show_price %} 
                         <div class="col-auto text-right" data-component="option.price">
