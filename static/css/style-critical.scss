@@ -3949,6 +3949,10 @@ p {
 }
 .notification-fixed-bottom .btn-link {
   font-size: 12px;
+  background-color: var(--main-foreground);
+  padding: 4px 8px !important;
+  color: #fff;
+  border-radius: 4px;
 }
 
 .notification-above {
@@ -6776,6 +6780,23 @@ div.labels .label {
 /*============================================================================
   #Cart detail
 ==============================================================================*/
+
+.cart {
+
+  &__buy-button {
+    background-color: #eaeded;
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+    padding-top: 1rem;
+  }
+}
+
+.znv-chat .znv-float-button {
+  z-index: 100 !important;
+  bottom: 80px !important;
+  right: 6px !important;
+} 
 
 /* // Shipping Calculator */
 

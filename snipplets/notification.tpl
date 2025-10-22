@@ -1,7 +1,7 @@
 {# Cookie validation #}
 
 {% if show_cookie_banner and not params.preview %}
-    <div class="js-notification js-notification-cookie-banner notification notification-fixed-bottom notification-above notification-primary text-left" style="display: none;">
+    <div class="js-notification js-notification-cookie-banner notification notification-fixed-bottom notification-above notification-primary text-left" style="display: none; {% if template =='product' %}bottom: 90px;{% endif %}">
         {{ 'Al navegar por este sitio <strong>aceptás el uso de cookies</strong> para agilizar tu experiencia de compra.' | translate }}
         <a href="#" class="js-notification-close js-acknowledge-cookies btn btn-link pt-1 pl-1 d-inline-block" data-amplitude-event-name="cookie_banner_acknowledge_click">{{ "Entendido" | translate }}</a>
     </div>
