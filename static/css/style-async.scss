@@ -285,7 +285,12 @@ button[readonly]:hover {
   width: calc(100% - 30px);
 }
 .notification-cart-container .notification-cart {
-  padding: 10px 30px 10px 10px;
+  padding: 15px 20px 15px 20px;
+  background-color: #1E2936;
+  color: white;
+  fill: white;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .notification-img {
   width: 55px;
