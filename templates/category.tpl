@@ -39,13 +39,22 @@
 {% endif %}
 
 <div class="sub-categories container mx-auto mt-0">
-	<div class="sub-categories-items">
-	{% for subcategory in category.subcategories %}
-		<a class="item-subcategory" href="{{ subcategory.url }}">
-		{{ subcategory.name }}
-		</a>
-	{% endfor %}
-	</div>
+    <div class="sub-categories-items">
+        {% if category.parent %}
+            <a class="item-subcategory__back-button d-block d-md-none" href="{{ category.parent.url }}">
+                <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px; vertical-align: middle;">
+                    <path d="M9.53333 12V4.94118H2.805L5.445 7.48235L4.41833 8.48824L0 4.23529L4.4 0L5.445 1.00588L2.805 3.52941H11V12H9.53333Z" fill="#E8604A"/>
+                </svg>
+                Voltar
+            </a>
+        {% endif %}
+
+        {% for subcategory in category.subcategories %}
+            <a class="item-subcategory" href="{{ subcategory.url }}">
+                {{ subcategory.name }}
+            </a>
+        {% endfor %}
+    </div>
 </div>
 
 {% include 'snipplets/grid/filters-modals.tpl' %}

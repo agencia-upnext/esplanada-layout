@@ -6933,6 +6933,17 @@ a.item-subcategory {
   height: 100%;
   border: 2px solid;
   border-color: transparent;
+
+  &__back-button {
+    background: transparent;
+    border: 2px solid #c6caca;
+    padding: 10px 15px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #fff;
+    }
+  }
 }
 
 .sub-categories-items {
